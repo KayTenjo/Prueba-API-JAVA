@@ -54,13 +54,13 @@ public class Communication {
         port.writeBytes(buffer, buffer.length);
     }
 
-    public String ReadLine()
+    public String readLine()
     {
         return scanner.nextLine();
         
     }
 
-    public void ClosePort()
+    public void closePort()
     {
         scanner.close();
         port.closePort();
