@@ -62,3 +62,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /Prueba API Java/nbproject/private/
+/Prueba API Java/build/

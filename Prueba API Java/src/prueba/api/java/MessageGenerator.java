@@ -5,6 +5,7 @@
  */
 package prueba.api.java;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -24,11 +25,11 @@ public class MessageGenerator {
     static final private String DIGITAL_WRITE_FUNCTION_NUMBER = "7";
     static final private String ANALOG_WRITE_FUNCTION_NUMBER = "8";
 
-    public String initializeMotor(List<Integer> pins)
+    public String initializeMotor(Collection<Integer> pins)
     {
         if (pins.isEmpty())
         {
-            //throw new System.ArgumentException("Array must have at least one element");
+            throw new IllegalArgumentException("List must have at least one element");
         }
         StringBuilder initializeMessage = new StringBuilder();
 
@@ -45,12 +46,12 @@ public class MessageGenerator {
 
     }
 
-    public String activateMotor(List<Integer> pins, List<String> values)
+    public String activateMotor(Collection<Integer> pins, Collection<String> values)
     {
 
         if (pins.size() != values.size())
         {
-            //throw new System.ArgumentException("Lists length must be equal");
+            throw new IllegalArgumentException("Lists length must be equal");
         }
 
         StringBuilder activateMessage = new StringBuilder();
@@ -77,7 +78,7 @@ public class MessageGenerator {
                 {
 
                     int valueAux = Integer.parseInt(values.get(i));
-                    // FALTA TRY CATCH PARA QUE SEA UN VALOR;
+                    
                     if ((valueAux < 256) && (valueAux >= 0))
                     {
                         value = Integer.toString(valueAux);
@@ -85,15 +86,15 @@ public class MessageGenerator {
 
                     else
                     {
-                        //throw new ArgumentException("Values must be between 0 and 255");
+                        throw new IllegalArgumentException("Values must be between 0 and 255");
                     }
 
                 }
 
-                catch (System.FormatException e)
+                catch (NumberFormatException e)
                 {
-                    //return (e.Data.Keys.toString());
-                    //throw new ArgumentException("Invalid value " + values.get(i));
+                    
+                    throw new IllegalArgumentException("Invalid value " + values.get(i));
                 }
 
             }
@@ -136,7 +137,7 @@ public class MessageGenerator {
 
         else
         {
-            //throw new System.ArgumentException(mode + " is not a valid mode");
+            throw new IllegalArgumentException(mode + " is not a valid mode");
         }
 
         String message = PIN_MODE_FUNCTION_NUMBER + SEPARATOR + "1" + SEPARATOR + pin + SEPARATOR 
@@ -147,7 +148,7 @@ public class MessageGenerator {
     {
         if (pins.size() != modes.size())
         {
-            //throw new System.ArgumentException("Lists length must be equal");
+            throw new IllegalArgumentException("Lists length must be equal");
         }
 
         StringBuilder pinModeMessage = new StringBuilder();
@@ -169,7 +170,7 @@ public class MessageGenerator {
 
             else
             {
-                //throw new System.ArgumentException(modes.get(i) + " is not a valid mode");
+                throw new IllegalArgumentException(modes.get(i) + " is not a valid mode");
             }
 
             String message = SEPARATOR + pins.get(i) + SEPARATOR + modeProtocol;
@@ -198,7 +199,7 @@ public class MessageGenerator {
 
         else
         {
-            //throw new System.ArgumentException(value + " is not a valid value");
+            throw new IllegalArgumentException(value + " is not a valid value");
         }
 
         String message = DIGITAL_WRITE_FUNCTION_NUMBER + SEPARATOR + "1" + SEPARATOR +
@@ -210,7 +211,7 @@ public class MessageGenerator {
     {
         if (pins.size() != values.size())
         {
-            //throw new System.ArgumentException("Lists length must be equal");
+            throw new IllegalArgumentException("Lists length must be equal");
         }
 
         StringBuilder digitalWriteMessage = new StringBuilder();
@@ -232,7 +233,7 @@ public class MessageGenerator {
 
             else
             {
-                //throw new System.ArgumentException(values.get(i) + " is not a valid value");
+                throw new IllegalArgumentException(values.get(i) + " is not a valid value");
             }
 
             String message = SEPARATOR + pins.get(i) + SEPARATOR + valueProtocol;
@@ -255,7 +256,7 @@ public class MessageGenerator {
     {
         if (pins.size() != values.size())
         {
-            //throw new System.ArgumentException("Lists length must be equal");
+            throw new IllegalArgumentException("Lists length must be equal");
         }
 
         StringBuilder analogWriteMessage = new StringBuilder();
