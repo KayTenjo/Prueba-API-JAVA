@@ -8,14 +8,11 @@ package prueba.api.java;
 import com.fazecast.jSerialComm.*;
 import java.util.Scanner;
 
-/**
- *
- * @author kayjt
- */
+
 public class Communication {
     
     SerialPort port;
-    Scanner scanner;
+    //Scanner scanner;
     
     public Communication()
     {
@@ -25,7 +22,7 @@ public class Communication {
         port = SerialPort.getCommPort(portName);
         port.setBaudRate(baudRate);
         port.openPort();
-        scanner = new Scanner(port.getInputStream());
+        
     }
 
     public String[] getPortNames() {
@@ -41,11 +38,11 @@ public class Communication {
 
     public void openPort(String portName, int baudRate)
     {
-        scanner.close();
-        port.closePort();
+        
         port = SerialPort.getCommPort(portName);
         port.setBaudRate(baudRate);
         port.openPort();
+
     }
 
     public void write(String data)
@@ -56,13 +53,21 @@ public class Communication {
 
     public String readLine()
     {
-        return scanner.nextLine();
+        Scanner scanner = new Scanner(port.getInputStream());
+        String line ="";
+		
+	if(scanner.hasNextLine()){
+        
+            line = scanner.nextLine();
+        }
+        
+        scanner.close();	
+        return line;
         
     }
 
     public void closePort()
     {
-        scanner.close();
         port.closePort();
     }
    

@@ -63,3 +63,7 @@ $RECYCLE.BIN/
 *.lnk
 /Prueba API Java/nbproject/private/
 /Prueba API Java/build/
+/Prueba API Java/dist/
+/Prueba_API_JAVA/nbproject/private/
+/Prueba_API_JAVA/build/
+/Prueba_API_JAVA/dist/

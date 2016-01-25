@@ -46,7 +46,7 @@ public class MessageGenerator {
 
     }
 
-    public String activateMotor(Collection<Integer> pins, Collection<String> values)
+    public String activateMotor(List<Integer> pins, List<String> values)
     {
 
         if (pins.size() != values.size())

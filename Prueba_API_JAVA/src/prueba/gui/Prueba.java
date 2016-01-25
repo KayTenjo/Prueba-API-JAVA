@@ -5,6 +5,7 @@
  */
 package prueba.gui;
 
+import java.util.ArrayList;
 import prueba.api.java.Glove;
 
 /**
@@ -45,12 +46,12 @@ public class Prueba extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButtonInitializeMotor = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        jButtonActivateMotors = new javax.swing.JButton();
+        jButtonPinMode = new javax.swing.JButton();
+        jButtonDigitalRead = new javax.swing.JButton();
+        jButtonDigitalWrite = new javax.swing.JButton();
+        jButtonAnalogWrite = new javax.swing.JButton();
+        jButtonAnalogRead = new javax.swing.JButton();
         PortListButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListPorts = new javax.swing.JList();
@@ -95,20 +96,45 @@ public class Prueba extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Activate Motors");
-
-        jButton5.setText("Pin Mode");
-
-        jButton6.setText("Digital Read");
-
-        jButton7.setText("Digital Write");
-
-        jButton8.setText("Analog write");
-
-        jButton9.setText("Analog Read");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        jButtonActivateMotors.setText("Activate Motors");
+        jButtonActivateMotors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                jButtonActivateMotorsActionPerformed(evt);
+            }
+        });
+
+        jButtonPinMode.setText("Pin Mode");
+        jButtonPinMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPinModeActionPerformed(evt);
+            }
+        });
+
+        jButtonDigitalRead.setText("Digital Read");
+        jButtonDigitalRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDigitalReadActionPerformed(evt);
+            }
+        });
+
+        jButtonDigitalWrite.setText("Digital Write");
+        jButtonDigitalWrite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDigitalWriteActionPerformed(evt);
+            }
+        });
+
+        jButtonAnalogWrite.setText("Analog write");
+        jButtonAnalogWrite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnalogWriteActionPerformed(evt);
+            }
+        });
+
+        jButtonAnalogRead.setText("Analog Read");
+        jButtonAnalogRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnalogReadActionPerformed(evt);
             }
         });
 
@@ -155,17 +181,17 @@ public class Prueba extends javax.swing.JFrame {
                                     .addComponent(jTextFieldValues)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButtonPinMode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButtonDigitalRead, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jButtonInitializeMotor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(jButtonActivateMotors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButtonDigitalWrite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5)
-                                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jButtonAnalogRead, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +203,7 @@ public class Prueba extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8)
+                .addComponent(jButtonAnalogWrite)
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -199,10 +225,11 @@ public class Prueba extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldBaudRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,29 +237,33 @@ public class Prueba extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonInitializeMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonActivateMotors, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonPinMode, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDigitalRead, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonDigitalWrite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAnalogWrite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonAnalogRead, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void jButtonAnalogReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnalogReadActionPerformed
+        
+        int pin_int = Integer.parseInt(jTextFieldPins.getText());
+        jTextArea2.setText("");
+        jTextArea2.append(guante.analogRead(pin_int));
+        
+    }//GEN-LAST:event_jButtonAnalogReadActionPerformed
 
     private void PortListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PortListButtonActionPerformed
         
@@ -256,16 +287,105 @@ public class Prueba extends javax.swing.JFrame {
         
         String [] listaPines = jTextFieldPins.getText().split(",");
         
-        int [] listaPinesInt = new int[listaPines.length];
+        ArrayList listaPinesInt = new ArrayList<>();
         
         for(int i = 0; i< listaPines.length ; i++){
         
-            listaPinesInt[i] = Integer.parseInt(listaPines[i]);
-            
+            //listaPinesInt[i] = Integer.parseInt(listaPines[i]);
+            listaPinesInt.add(Integer.parseInt(listaPines[i]));
         }
         
         guante.initializeMotor(listaPinesInt);
     }//GEN-LAST:event_jButtonInitializeMotorActionPerformed
+
+    private void jButtonActivateMotorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActivateMotorsActionPerformed
+        
+        String [] listaPines = jTextFieldPins.getText().split(",");
+        String [] listaValores = jTextFieldValues.getText().split(",");
+        
+        ArrayList<Integer> listaPinesInt = new ArrayList<>();
+        ArrayList<String> listaValoresInt = new ArrayList<>();
+        
+        for(int i = 0; i< listaPines.length ; i++){
+        
+            //listaPinesInt[i] = Integer.parseInt(listaPines[i]);
+            listaPinesInt.add(Integer.parseInt(listaPines[i]));
+            
+        }
+        
+        for(int i = 0; i< listaValores.length ; i++){
+        
+            //listaPinesInt[i] = Integer.parseInt(listaPines[i]);
+            listaValoresInt.add(listaValores[i]);
+        }
+        
+        guante.activateMotor(listaPinesInt, listaValoresInt);
+    }//GEN-LAST:event_jButtonActivateMotorsActionPerformed
+
+    private void jButtonPinModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPinModeActionPerformed
+        
+        String [] listaPines = jTextFieldPins.getText().split(",");
+        String [] listaValores = jTextFieldValues.getText().split(",");
+
+        ArrayList<Integer> listaPinesInt = new ArrayList<>();
+        ArrayList<String> listaValoresInt = new ArrayList<>();
+        
+        for(int i = 0; i< listaPines.length ; i++){
+        
+            //listaPinesInt[i] = Integer.parseInt(listaPines[i]);
+            listaPinesInt.add(Integer.parseInt(listaPines[i]));
+            
+        }
+        
+        for(int i = 0; i< listaValores.length ; i++){
+        
+            //listaPinesInt[i] = Integer.parseInt(listaPines[i]);
+            listaValoresInt.add(listaValores[i]);
+        }
+        
+        guante.pinMode(listaPinesInt, listaValoresInt);
+   
+        
+    }//GEN-LAST:event_jButtonPinModeActionPerformed
+
+    private void jButtonDigitalReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDigitalReadActionPerformed
+    
+        int pin_int = Integer.parseInt(jTextFieldPins.getText());
+        
+        jTextArea2.append(guante.digitalRead(pin_int));
+    }//GEN-LAST:event_jButtonDigitalReadActionPerformed
+
+    private void jButtonDigitalWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDigitalWriteActionPerformed
+        
+        String [] listaPines = jTextFieldPins.getText().split(",");
+        String [] listaValores = jTextFieldValues.getText().split(",");
+
+        ArrayList<Integer> listaPinesInt = new ArrayList<>();
+        ArrayList<String> listaValoresInt = new ArrayList<>();
+        
+        for(int i = 0; i< listaPines.length ; i++){
+        
+            //listaPinesInt[i] = Integer.parseInt(listaPines[i]);
+            listaPinesInt.add(Integer.parseInt(listaPines[i]));
+            
+        }
+        
+        for(int i = 0; i< listaValores.length ; i++){
+        
+            //listaPinesInt[i] = Integer.parseInt(listaPines[i]);
+            listaValoresInt.add(listaValores[i]);
+        }
+
+        guante.digitalWrite(listaPinesInt, listaValoresInt);
+    }//GEN-LAST:event_jButtonDigitalWriteActionPerformed
+
+    private void jButtonAnalogWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnalogWriteActionPerformed
+        
+        int pin = Integer.parseInt(jTextFieldPins.getText());
+        int valor = Integer.parseInt(jTextFieldValues.getText());
+        
+        guante.analogWrite(pin, valor);
+    }//GEN-LAST:event_jButtonAnalogWriteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,15 +424,15 @@ public class Prueba extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PortListButton;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonActivateMotors;
+    private javax.swing.JButton jButtonAnalogRead;
+    private javax.swing.JButton jButtonAnalogWrite;
     private javax.swing.JButton jButtonClosePort;
+    private javax.swing.JButton jButtonDigitalRead;
+    private javax.swing.JButton jButtonDigitalWrite;
     private javax.swing.JButton jButtonInitializeMotor;
     private javax.swing.JButton jButtonOpenPort;
+    private javax.swing.JButton jButtonPinMode;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
