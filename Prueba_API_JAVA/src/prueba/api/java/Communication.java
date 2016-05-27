@@ -22,6 +22,7 @@ public class Communication {
         port = SerialPort.getCommPort(portName);
         port.setBaudRate(baudRate);
         port.openPort();
+        port.setComPortTimeouts(SerialPort.TIMEOUT_READ_BLOCKING, 1000, 0);
         
     }
 
@@ -42,6 +43,7 @@ public class Communication {
         port = SerialPort.getCommPort(portName);
         port.setBaudRate(baudRate);
         port.openPort();
+        port.setComPortTimeouts(SerialPort.TIMEOUT_READ_BLOCKING, 1000, 0);
 
     }
 

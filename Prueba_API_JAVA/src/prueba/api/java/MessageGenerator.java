@@ -130,7 +130,7 @@ public class MessageGenerator {
             modeProtocol = "1";
         }
 
-        else if (mode .equals("OUTPUT"))
+        else if (mode.equals("OUTPUT"))
         {
             modeProtocol = "2";
         }
